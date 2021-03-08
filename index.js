@@ -1,20 +1,22 @@
-var express = require('express');
-const fetch = require('node-fetch');
+const express = require('express');
+const status = require('http-status-codes');
+const app = express();
 
-var app = express();
-app.use(express.json());
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
 
-app.get('/units/affordable', async function (req, res) {
-    const url = "https://age-of-empires-2-api.herokuapp.com/api/v1/units"
+const router = express.Router(express);
 
-    let data = null
-    await fetch(url)
-        .then(res => res.json())
-        .then(json => data = json);
+app.use("/aoe-units-analyzer", router);
 
-    res.status(200).send(data);
-})
+require("./src/Routes.js")(router);
 
-app.listen(8081, function () {
-    console.log("Server has started.")
-})
+app.use((err, req, res, next) => {
+    global.logger.error('An error has occoured ' + err);
+    res.status(status.StatusCodes.INTERNAL_SERVER_ERROR).end();
+});
+
+const port = 8081
+app.listen(port, () => {
+    console.log("Server has started on port: " + port);
+});
