@@ -4,11 +4,11 @@ const status = require('http-status-codes');
 const AffordableUnits = require('../model/AffordableUnits');
 
 module.exports = async (req, res, next) => {
-    if (!req.query.food || !req.query.age) {
+    if (!req.query.age || !req.query.food || !req.query.wood || !req.query.stone || !req.query.gold) {
         return res.status(status.StatusCodes.BAD_REQUEST).end();
     }
 
-    const test = new AffordableUnits()
+    const test = new AffordableUnits(req.query.food, req.query.wood, req.query.stone, req.query.gold)
     console.log(test)
 
     console.log(req.query)
@@ -20,7 +20,7 @@ module.exports = async (req, res, next) => {
         .then(res => res.json())
         .then(json => data = json);
 
-    console.log(data.units[0])
+    test.add(data.units)
 
     return res.status(status.StatusCodes.OK).json(data).end();
 }
