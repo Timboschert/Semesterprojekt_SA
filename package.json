@@ -1,0 +1,19 @@
+{
+  "name": "age-2-api-unit-calculator",
+  "version": "1.0.0",
+  "description": "Calculates based on the given resources how many units can be trained for each unit",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "various",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7",
+    "typescript": "^4.2.3"
+  }
+}
