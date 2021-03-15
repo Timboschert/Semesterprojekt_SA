@@ -6,9 +6,9 @@ const router = express.Router(express);
 
 app.use("/aoe-units-analyzer", router);
 
-require("./src/Routes.js")(router);
+require("./src/routes/Routes")(router);
 
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
     global.logger.error('An error has occoured ' + err);
     res.status(status.StatusCodes.INTERNAL_SERVER_ERROR).end();
 });
