@@ -14,13 +14,10 @@ module.exports = async (req, res) => {
 
     const calculator = new AffordableUnitsCalculator(req.query.age, req.query.food, req.query.wood, req.query.stone, req.query.gold)
 
-    let data = null
     const url = "https://age-of-empires-2-api.herokuapp.com/api/v1/units"
     await fetch(url)
         .then(res => res.json())
-        .then(json => data = json);
-
-    calculator.calculateUnits(data.units)
+        .then(json => calculator.calculateUnits(json.units));
 
     return res.status(status.StatusCodes.OK).json(calculator.affordableUnits).end();
 }

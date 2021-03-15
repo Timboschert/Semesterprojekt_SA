@@ -59,7 +59,6 @@ class AffordableUnitsCalculator {
                     unit["remaining" + key] = this.avaiableResources.get(key)
             }
 
-            console.log(unit)
             this.affordableUnits.push(new AffordableUnit(unit.id, unit.name, unit.description, unit.expansion, unit.age, unit.created_in, unit.cost, unit.affordableUnits, unit.remainingFood, unit.remainingWood, unit.remainingStone, unit.remainingGold))
         }
     };
