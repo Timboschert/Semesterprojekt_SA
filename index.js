@@ -2,9 +2,6 @@ const express = require('express');
 const status = require('http-status-codes');
 const app = express();
 
-const bodyParser = require("body-parser");
-app.use(bodyParser.json());
-
 const router = express.Router(express);
 
 app.use("/aoe-units-analyzer", router);
