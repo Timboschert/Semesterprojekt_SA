@@ -35,8 +35,9 @@ Semesterprojekt für Software-Architektur-Vorlesung
   - `gold=[integer]`
   
 ### Erfolgreiche Antwort
-   Code: 200
-   Inhalt:
+   **Code**: `200`
+   
+   **Inhalt**:
    ```json
    [
     {
