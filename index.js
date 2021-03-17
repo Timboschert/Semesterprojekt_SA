@@ -8,8 +8,8 @@ app.use("/aoe-units-analyzer", router);
 
 require("./src/routes/Routes")(router);
 
-app.use((err, req, res) => {
-    global.logger.error('An error has occoured ' + err);
+app.use(function (err, req, res, next) {
+    console.error(err);
     res.status(status.StatusCodes.INTERNAL_SERVER_ERROR).end();
 });
 
