@@ -19,23 +19,27 @@ Semesterprojekt für Software-Architektur-Vorlesung
   Diese API berechnet auf Basis der übergebenen Zeitalters und der Ressourcen, wie viele Einheiten für die existierenden Einheiten berechnet werden können.
   Diese API kann auch für mehrere Anfragen genutzt werden. Zum Beispiel kann, wenn man von der initialen Antwort eine Einheit auswählt, welche zum Beispiel am meisten   ausgebildet werden kann, mit den übrigen Ressourcen eine weitere Anfrage schicken und von dieser wieder eine Einheit auswählen, welche am meisten ausgebildet werden kann. Dies kann so lange durchgeführt werden bis alle Ressourcen verbraucht sind.
 
-* **URL**
+### **URL**
 
  /aoe-units-analyzer/units/affordable
 
-* **Methode:**
+### **Methode:**
   `GET`
   
-*  **URL Parameter**
+###  **URL Parameter**
 
   **Erforderlich:**
    `age=[Dark|Feudal|Castle|Imperial]`
+   
    `food=[integer]`
+   
    `wood=[integer]`
+   
    `stone=[integer]`
+   
    `gold=[integer]`
   
-* **Erfolgreiche Antwort:**
+### **Erfolgreiche Antwort:**
   
   * **Code:** 200 <br />
     **Inhalt:** `
@@ -108,7 +112,7 @@ Semesterprojekt für Software-Architektur-Vorlesung
 ]
     `
  
-* **Error Antwort**
+### **Error Antwort**
 
   * **Code:** 400 BAD_REQUEST <br />
     **Inhalt:** `none`   
