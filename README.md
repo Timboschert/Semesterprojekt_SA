@@ -28,7 +28,8 @@ Semesterprojekt für Software-Architektur-Vorlesung
   
 ###  **URL Parameter**
 
-  **Erforderlich:**
+  **Erforderlich**
+  
    `age=[Dark|Feudal|Castle|Imperial]`
    
    `food=[integer]`
@@ -39,11 +40,11 @@ Semesterprojekt für Software-Architektur-Vorlesung
    
    `gold=[integer]`
   
-### **Erfolgreiche Antwort:**
+### **Erfolgreiche Antwort**
   
-    **Code:** 200 <br />
-    **Inhalt:** 
-    `
+    **Code:** 200
+    
+    **Inhalt:**
     [
     {
         "id": 15,
@@ -111,9 +112,8 @@ Semesterprojekt für Software-Architektur-Vorlesung
         "remaningGold": 1000
     }
 ]
-    `
  
-### **Error Antwort**
+### **Antwort bei falschen Parametern**
 
   **Code:** 400 BAD_REQUEST <br />
-    **Inhalt:** `none`   
+    **Inhalt:** `keinen`   
