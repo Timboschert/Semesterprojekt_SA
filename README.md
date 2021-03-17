@@ -41,8 +41,9 @@ Semesterprojekt für Software-Architektur-Vorlesung
   
 ### **Erfolgreiche Antwort:**
   
-  * **Code:** 200 <br />
-    **Inhalt:** `
+    **Code:** 200 <br />
+    **Inhalt:** 
+    `
     [
     {
         "id": 15,
@@ -114,5 +115,5 @@ Semesterprojekt für Software-Architektur-Vorlesung
  
 ### **Error Antwort**
 
-  * **Code:** 400 BAD_REQUEST <br />
+  **Code:** 400 BAD_REQUEST <br />
     **Inhalt:** `none`   
