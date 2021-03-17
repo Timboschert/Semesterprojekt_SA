@@ -17,29 +17,28 @@ Semesterprojekt für Software-Architektur-Vorlesung
 **Age of Empries II Einheitenrechner**
 ----
   Diese API berechnet auf Basis der übergebenen Zeitalters und der Ressourcen, wie viele Einheiten für die existierenden Einheiten berechnet werden können.
-  Diese API kann auch für mehrere Anfragen genutzt werden. Zum Beispiel kann, wenn man von der initialen Antwort eine Einheit auswählt, welche zum Beispiel am meisten   ausgebildet werden kann, mit den übrigen Ressourcen eine weitere Anfrage schicken und von dieser wieder eine Einheit auswählen, welche am meisten ausgebildet werden kann. Dies kann so lange durchgeführt werden bis alle Ressourcen verbraucht sind.
+  
+  > Diese API kann auch für mehrere Anfragen genutzt werden. Zum Beispiel kann, wenn man von der initialen Antwort eine Einheit auswählt, welche zum Beispiel am meisten   ausgebildet werden kann, mit den übrigen Ressourcen eine weitere Anfrage schicken und von dieser wieder eine Einheit auswählen, welche am meisten ausgebildet werden kann. Dies kann so lange durchgeführt werden bis alle Ressourcen verbraucht sind.
 
 ### URL
 
- /aoe-units-analyzer/units/affordable
-
-### Methode:
-  `GET`
+  `GET` /aoe-units-analyzer/units/affordable
   
-### URL Parameter
+#### URL Parameter
 
   Erforderliche Parameter
-     * `age=[Dark|Feudal|Castle|Imperial]`
-     * `food=[integer]`
-     * `wood=[integer]`
-     * `stone=[integer]`
-     * `gold=[integer]`
+  
+  - `age=[Dark|Feudal|Castle|Imperial]`
+  - `food=[integer]`
+  - `wood=[integer]`
+  - `stone=[integer]`
+  - `gold=[integer]`
   
 ### Erfolgreiche Antwort
    Code: 200
    Inhalt:
-    ```json
-    [
+   ```json
+   [
     {
         "id": 15,
         "name": "Militia",
@@ -105,7 +104,8 @@ Semesterprojekt für Software-Architektur-Vorlesung
         "remainingStone": 1000,
         "remaningGold": 1000
     }
-]```
+]
+```
 
 ### Antwort bei fehlerhaften Aufrufen
-  Code: 400 BAD_REQUEST   
+  **Code**: `400 BAD_REQUEST` 
