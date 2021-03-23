@@ -7,7 +7,7 @@ const AffordableUnitsCalculator = require('../model/AffordableUnitsCalculator')
 module.exports = async (req, res) => {
     const { age, food, wood, stone, gold } = req.query
 
-    if (!age || isNaN(food) || isNaN(wood) || isNaN(stone) || isNaN(gold)) {
+    if (!age || !food || !wood || !stone || !gold || isNaN(food) || isNaN(wood) || isNaN(stone) || isNaN(gold)) {
         return res.status(status.StatusCodes.BAD_REQUEST).end()
     }
 
