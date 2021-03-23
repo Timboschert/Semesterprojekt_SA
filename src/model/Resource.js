@@ -1,8 +1,8 @@
 class Resouce {
     constructor(type, value) {
-        this.type = type;
-        this.value = value;
+        this.type = type
+        this.value = value
     }
 }
 
-module.exports = Resouce;
+module.exports = Resouce

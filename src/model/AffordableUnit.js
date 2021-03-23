@@ -15,4 +15,4 @@ class AffordableUnit {
     }
 }
 
-module.exports = AffordableUnit;
+module.exports = AffordableUnit

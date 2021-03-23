@@ -2,11 +2,11 @@ class Age {
     constructor(age) {
         this.currentAge = age
 
-        this.ages = new Map();
-        this.ages.set("Dark", 0);
-        this.ages.set("Feudal", 1);
-        this.ages.set("Castle", 2);
-        this.ages.set("Imperial", 3);
+        this.ages = new Map()
+        this.ages.set("Dark", 0)
+        this.ages.set("Feudal", 1)
+        this.ages.set("Castle", 2)
+        this.ages.set("Imperial", 3)
     }
 
     getAge(age) {
@@ -14,4 +14,4 @@ class Age {
     }
 }
 
-module.exports = Age;
+module.exports = Age

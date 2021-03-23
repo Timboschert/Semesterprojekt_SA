@@ -1,43 +1,44 @@
-const Resource = require('./Resource');
-const Ages = require('./Ages');
-const AffordableUnit = require('./AffordableUnit');
+const Resource = require('./Resource')
+const Ages = require('./Ages')
+const AffordableUnit = require('./AffordableUnit')
 
 class AffordableUnitsCalculator {
     constructor(age, availableFood, availableWood, availableStone, availableGold) {
         this.ages = new Ages(age)
 
         this.avaiableResources = new Map();
-        this.avaiableResources.set("Food", parseInt(availableFood));
-        this.avaiableResources.set("Wood", parseInt(availableWood));
-        this.avaiableResources.set("Stone", parseInt(availableStone));
-        this.avaiableResources.set("Gold", parseInt(availableGold));
+        this.avaiableResources.set("Food", parseInt(availableFood))
+        this.avaiableResources.set("Wood", parseInt(availableWood))
+        this.avaiableResources.set("Stone", parseInt(availableStone))
+        this.avaiableResources.set("Gold", parseInt(availableGold))
 
         this.affordableUnits = []
     }
 
     calculateUnits(units) {
         for (let unit of units) {
+            const { cost } = unit
             let resources = []
 
             if (!this.ages.getAge(unit.age)) {
                 continue
             }
 
-            if (unit.cost["Food"] == undefined && unit.cost["Wood"] == undefined && unit.cost["Stone"] == undefined && unit.cost["Gold"] == undefined) {
+            if (cost["Food"] == undefined && cost["Wood"] == undefined && cost["Stone"] == undefined && cost["Gold"] == undefined) {
                 continue
             }
 
-            if (unit.cost["Food"] != undefined) {
-                resources.push(new Resource("Food", unit.cost["Food"]))
+            if (cost["Food"] != undefined) {
+                resources.push(new Resource("Food", cost["Food"]))
             }
-            if (unit.cost["Wood"] != undefined) {
-                resources.push(new Resource("Wood", unit.cost["Wood"]))
+            if (cost["Wood"] != undefined) {
+                resources.push(new Resource("Wood", cost["Wood"]))
             }
-            if (unit.cost["Stone"] != undefined) {
-                resources.push(new Resource("Stone", unit.cost["Stone"]))
+            if (cost["Stone"] != undefined) {
+                resources.push(new Resource("Stone", cost["Stone"]))
             }
-            if (unit.cost["Gold"] != undefined) {
-                resources.push(new Resource("Gold", unit.cost["Gold"]))
+            if (cost["Gold"] != undefined) {
+                resources.push(new Resource("Gold", cost["Gold"]))
             }
 
             let affordableUnits = Number.MAX_VALUE
@@ -47,7 +48,6 @@ class AffordableUnitsCalculator {
                     affordableUnits = affordableUnitsForResource
                 }
             }
-
             unit["affordableUnits"] = affordableUnits
 
             for (let resource of resources) {
@@ -59,10 +59,9 @@ class AffordableUnitsCalculator {
                     unit["remaining" + key] = this.avaiableResources.get(key)
             }
 
-            this.affordableUnits.push(new AffordableUnit(unit.id, unit.name, unit.description, unit.expansion, unit.age, unit.created_in, unit.cost, unit.affordableUnits, unit.remainingFood, unit.remainingWood, unit.remainingStone, unit.remainingGold))
+            this.affordableUnits.push(new AffordableUnit(unit.id, unit.name, unit.description, unit.expansion, unit.age, unit.created_in, cost, unit.affordableUnits, unit.remainingFood, unit.remainingWood, unit.remainingStone, unit.remainingGold))
         }
-    };
-
+    }
 }
 
-module.exports = AffordableUnitsCalculator;
+module.exports = AffordableUnitsCalculator
