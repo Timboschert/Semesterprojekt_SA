@@ -7,11 +7,13 @@ const AffordableUnitsCalculator = require('../model/AffordableUnitsCalculator')
 module.exports = async (req, res) => {
     const { age, food, wood, stone, gold } = req.query
 
+    // check if required query parameter are given and are valid
     if (!age || !food || !wood || !stone || !gold || isNaN(food) || isNaN(wood) || isNaN(stone) || isNaN(gold)) {
         return res.status(status.StatusCodes.BAD_REQUEST).end()
     }
-
+    
     helper = new Ages(null)
+    // check if the given age is valid
     if (!helper.ages.has(age)) {
         return res.status(status.StatusCodes.BAD_REQUEST).end()
     }
